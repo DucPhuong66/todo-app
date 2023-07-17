@@ -10,6 +10,7 @@ import filtersReducer from '../components/Filters/FiltersSlide'
 //     }
 // }
 
+
 const rootReducer = combineReducers ({
     filters: filtersReducer,
     todoList: todoListReducer
