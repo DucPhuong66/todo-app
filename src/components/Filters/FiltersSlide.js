@@ -1,20 +1,55 @@
-const initState = {
+// const initState = {
+//   search: "",
+//   status: "All",
+//   priorities: [],
+// };
+
+// const filtersReducer = (state = initState, action) => {
+//   console.log(state, action);
+//   switch (action.type) {
+//     case "filters/searchFilterChange":
+//       return {
+//         ...state,
+//         search: action.payload,
+//       };
+//     case "filters/statusFilterChange":
+//       return {
+//         ...state,
+//         status: action.payload,
+//       };
+//     case "filters/prioritiesFilterChange":
+//       return {
+//         ...state,
+//         priorities: action.payload,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+// export default filtersReducer;
+
+// ** Using redux toolKit
+import { createSlice } from "@reduxjs/toolkit";
+
+export default createSlice({
+  name: "filters",
+  initialState : {
     search: "",
     status: "All",
-    priority: [],
-};
+    priorities: [],
+  },
+  reducers : {
+    searchFilterChange: (state, action) => {
+      // mutation concert || IMMER
+      state.search = action.payload;
 
-const filtersReducer = (state = initState, action) => {
-  console.log(state, action);
-  switch (action.type) {
-    case "filters/searchFilterChange":
-      return {
-        ...state,
-        search: action.payload,
-      };
-    default:
-      return state;
+    }, // => { type: 'filters/searchFilterChange'}
+    statusFilterChange: (state, action) => {
+        state.status = action.payload;
+    },
+    prioritiesFilterChange: (state, action) => {
+        state.priorities = action.payload;
+    }
   }
-};
-
-export default filtersReducer;
+});
